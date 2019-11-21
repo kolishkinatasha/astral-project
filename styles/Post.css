@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&subset=cyrillic');
+
+.posts {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-content: space-around;
+    width: 1032;
+    margin-top: 215px;
+    margin-left: 124px;
+    margin-right: 124px;
+}
+
+
+.post {
+    /* border:1px solid rgb(184, 207, 226); */
+    /* padding: 0px; */
+    width: 304px;
+    height: 415px;
+    margin:10px;
+    
+    background: #FFFFFF;
+    /* box-shadow: 0px 2px 4px rgba(8, 35, 48, 0.15); */
+}
+
+.post-img {
+    width: 304px;
+    height: 315px;
+    /* margin-bottom: 0px; */
+    /* left: 0px; */
+    /* top: 0px; */
+}
+
+.post-descr {
+    width: 234px;
+    height: 24px;
+    margin-left: 24px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    /* left: 24px; */
+    /* top: 331px; */
+    /* bottom: 16px; */
+    /* right: 46px; */
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    color: #000000;
+}
+
+.post-button {
+    display: inline-block;
+    /* left: 7.89%; */
+    /* right: 53.95%; */
+    /* top: 89.4%; */
+    /* bottom: 3.86%; */
+    width: 116px;
+    height: 28px;
+    margin-left: 24px;
+    padding: 0;
+    
+    border: none;
+    border-radius: 2px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+   
+}
+
+.post-button-img {
+    display: inline-block;
+    padding: 0;
+    width: 16px;
+    height: 14px;
+    margin-top: 6%;
+    margin-left: 5%;
+    
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: #07319D;
+    
+    border: none;
+}

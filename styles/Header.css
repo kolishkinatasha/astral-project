@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+body{
+  background-color: white;
+}
+
+.header {
+  position: absolute;
+  top: 32px;
+  /* right: 144px; */
+  height: 315px;
+  width: 100%;
+  /* margin: 0px;
+  padding: 0px; */
+  }
+
+.header-title{
+  /* position: absolute;
+   top: 0; */
+  width: 200px;
+  height: 60px;
+  margin-left: 144px;
+  margin-top: 30px;
+
+  font-family: Lobster; 
+  font-style: normal;
+  font-weight: normal;
+  font-size: 48px;
+  line-height: 60px;
+  color: #000000;
+}
+
+.header-button__white {
+  position: absolute;
+  width: 140px;
+  height: 16px;
+  top: 54px;
+  right: 144px;
+
+  padding: 0;
+  
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  color: #07319D;
+  
+  border: none; 
+  background: none;
+  }
+
+.header-button__blue {
+  position: absolute;
+  width: 137px;
+  height: 36px;
+  /* left: 827px; */
+  top: 44px;
+  right: 313px;
+  
+  padding: 0;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  color: white;
+  
+  border: none; 
+  background: #07319D;
+  border-radius: 4px;
+  } 
+

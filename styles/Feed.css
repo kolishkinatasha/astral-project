@@ -1,0 +1,15 @@
+.feed {
+    position: relative;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+
+    background: #FFFFFF;
+}
+
+.posts-border {
+    margin: 20px;
+    
+    box-shadow: 0px 2px 4px rgba(8, 35, 48, 0.15);
+}

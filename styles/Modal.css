@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+.signup {
+  position: absolute;
+  width: 393px;
+  height: 530px;
+  left: 40%;
+  top: 17%;
+  z-index: 10;
+
+  background: white;
+  /* box-shadow: gray; */
+  box-shadow: -2rem 2rem 2rem rgba(0, 0, 0, 0.2);
+
+}
+
+.signin {
+  position: absolute;
+  left: 40%;
+  top: 17%;
+  z-index: 10;
+
+  width: 393px;
+  height: 400px;
+  
+  background: white;
+  box-shadow: -2rem 2rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+.background {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 5;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-nav {
+  position: absolute;
+  left: 215px;
+  top: 17px;
+  
+  width: 393px;
+  height: 9px;
+}
+
+.modal-nav button {
+  line-height: 9px;
+  font-size: 10px;
+  
+  border: none; 
+  background: none;
+  border: none;
+  color: #07319D;
+}
+
+.modal-nav span {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 9px;
+  color: #000000;
+}
+
+.nav-buttons__signup {
+  position: absolute;
+  left: 999px;
+  top: 44px;
+  border: none;
+  
+  width: 150px;
+  height: 36px;
+
+  font-size: 14px;
+  line-height: 16px;
+  color: #07319D;
+}
+
+.modal-title {
+  font-size: 24px;
+  line-height: 20px;
+  margin-left: 56px;
+  margin-top: 105px;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-form input {
+  width: 285px;
+  margin: 20px;
+  margin-left: 56px;
+  padding-bottom: 10px;
+
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #dde2e8;
+}
+
+.modal-button__blue {
+  width: 281px;
+  height: 36px;
+  margin: 48px 56px;
+
+  color: white;
+
+  border: none; 
+  /* background: none; */
+  background: #07319D;
+  border-radius: 4px;
+}

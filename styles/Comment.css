@@ -1,0 +1,122 @@
+.comment {
+    position: absolute;
+    
+    left: 30%;
+    top: 17%;
+    z-index: 10;
+
+    width: 693px;
+    height: 530px;
+    
+    background: white;
+    box-shadow: gray;
+    box-shadow: -2rem 2rem 2rem rgba(0, 0, 0, 0.2); 
+
+}
+.comment__background {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    z-index: 5;
+
+    background-color: rgba(0, 0, 0, 0.5);    
+}
+
+.comment-post {
+    position: absolute;
+    /* top:32px; */
+    /* left: 12px; */
+    width: 651px;
+    height: 812;
+}
+
+.comment-form {
+    position: absolute;
+    width: 300px;
+    left: 0px;
+    left: 350px;
+    top: 45px;
+}
+
+.comment-user {
+    display: inline-block;
+    width: 70px;
+    color: #07319D;
+    /* margin-right: 20px;  */
+}
+
+.comment-delete {
+    position: absolute;
+    right: 0px;
+    width: 10px;
+    height: 10px;
+}
+
+.comment-form-input {
+    position: absolute;
+}
+
+.comment-input {
+    position: relative;
+    top:0;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    margin-top: 24px;
+    width: 300px;
+    background: 0%;
+
+    outline: none;
+    border: none;
+    border-bottom: 1px solid rgba(42, 73, 94, 0.12);
+}
+
+.comment-input:focus {
+    background: #FFFFFF;
+}
+
+.comment-input-placeholder {
+    position: relative;
+    top:-40px;
+    z-index: 1;
+    color: gray;
+}
+
+.comment-button__blue {
+    position: relative;
+    width: 120px;
+    height: 36px;
+    top: 108px;
+
+    margin: 48px 0px;
+    
+    border: none; 
+    background: none;
+    color: white;
+    background: #07319D;
+    border-radius: 4px;
+}
+
+.comment-button__white {
+    position: relative;
+    top: 108px;
+
+    padding: 0px;
+    margin: 40px;
+    
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+
+    border: none; 
+    background: none;
+    color: #07319D;
+}
+
+
+
