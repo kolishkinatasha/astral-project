@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from '../components/Header';
-import Feed from '../components/Feed';
+import Header from './Header';
+import Feed from './Feed';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 const App = () => {

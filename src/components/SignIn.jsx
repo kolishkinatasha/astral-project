@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/Modal.css';
 import Axios from 'axios';
 
@@ -7,16 +7,21 @@ const SignIn = ({ redirectModal, closeModal }) => {
     login: '',
     password: ''
   };
-
+  const [login, setLogin] = useState(userLogin.login);
   const autho = e => {
     e.preventDefault();
     Axios.post('/login', { param: userLogin }).then(res => {
-      res.data ? alert('you are logged') : alert('user not found');
+      res.data
+        ? ((localStorage.user = userLogin.login), alert('you are logged'))
+        : alert('user not found');
     });
-
+    // localStorage.setItem('user', userLogin.login);
+    // console.log(localStorage.setItem('user', userLogin.login));
+    console.log(localStorage.getItem('user'));
     closeModal();
   };
   console.log(userLogin);
+
   const handleUser = e => {
     const { name, value } = e.target;
     userLogin[name] = value;

@@ -1,15 +1,10 @@
 import React from 'react';
 import Post from './Post';
 import '../styles/Feed.css';
-// import '../styles/Posts.css';
-// import Users from './Users';
 
-import firstImage from '../src/image/1.png';
-import secondImage from '../src/image/2.png';
-import thirdImage from '../src/image/3.png';
-// import {posts} from '../posts';
-
-// const { id } = item;
+import firstImage from '../image/1.png';
+import secondImage from '../image/2.png';
+import thirdImage from '../image/3.png';
 
 const images = [
   firstImage,

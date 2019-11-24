@@ -1,11 +1,37 @@
 import React, { useState } from 'react';
 import Comments from './Comments';
+import Axios from 'axios';
 
 import '../styles/Post.css';
-import { posts } from '../posts';
+import { posts, users } from '../../posts';
 
 const Post = ({ image, id }) => {
   const [commentIsOpen, setOpenComment] = useState(false);
+
+  const [likeCounter, setLikeCounter] = useState(posts[id].likedUsers.length);
+
+  // const [isLikeAdded, setLike] = useState(
+  //   data.likedUsers.includes(localStorage.currentUser) ? true : false
+  // );
+  // localStorage.setItem('posts', JSON.stringify(posts));
+
+  // console.log(JSON.parse(localStorage.getItem('posts')));
+  const [data, resData] = useState(JSON.parse(localStorage.posts));
+  // const [comments] = useState(data[id].comment);
+
+  // const likeRequest = (id, user) =>
+  //   Axios.post('/like', { params: { id, user } });
+
+  const handleLike = () => {
+    Axios.post(
+      '/like',
+      { params: { id, user } }.then(res => {
+        console.log(res.data);
+        localStorage.setItem('posts', JSON.stringify(res.data));
+        setLikeCounter(res.data[data.id].likedUsers.length);
+      })
+    );
+  };
 
   const handleComment = e => {
     e.preventDefault();
@@ -24,10 +50,15 @@ const Post = ({ image, id }) => {
       <img className="post-img" src={posts[id].src} alt="foto" />
 
       <div className="post-descr">{posts[id].descr}</div>
-      <button className="post-button" onClick={() => setCount(count + 1)}>
+      <button
+        className="post-button"
+        data-counter="0"
+        onClick={handleLike}
+        // onClick={() => setCount(count + 1)}
+      >
         <img
           className="post-button-img"
-          src={require('../src/image/like.png')}
+          src={require('../image/like.png')}
           alt="like"
         />
         {/* <img
@@ -40,10 +71,12 @@ const Post = ({ image, id }) => {
       <button className="post-button" onClick={handleComment}>
         <img
           className="post-button-img"
-          src={require('../src/image/comment.png')}
+          src={require('../image/comment.png')}
           alt="comment"
         />
-        <p className="post-button-img">{posts[id].comment.length}</p>
+        <p className="post-button-img">
+          {JSON.parse(localStorage.posts)[id].comment.length}
+        </p>
       </button>
       {commentIsOpen && <Comments id={id} closeComment={closeComment} />}
     </div>

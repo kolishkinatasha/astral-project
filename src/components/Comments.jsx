@@ -1,36 +1,47 @@
 import React from 'react';
 import { useState } from 'react';
 import '../styles/Comment.css';
-import { posts } from '../posts';
+import { posts } from '../../posts';
 import Axios from 'axios';
 import Post from './Post';
-
-import deleteIcon from '../src/image/close.png';
+import deleteIcon from '../image/close.png';
 
 const Comments = ({ closeComment, id }) => {
   const userComment = {
-    author: '',
+    author: localStorage.getItem('user'),
     comment: ''
   };
 
-  const [data, setData] = useState(posts);
-  // const [ comments, setComments ] = useState(data[id].comment);
-  const [comments] = useState(data[id].comment);
+  const [data, setData] = useState(JSON.parse(localStorage.posts));
+  const [comments, setComments] = useState(data[id].comment);
 
-  // Axios.get('/data')
-  // .then (res => setData(res.data));
-  const comment = e => {
-    e.preventDefault();
+  const deleteComment = commentId => () => {
+    // setComments(JSON.parse(localStorage.data[id].comment));
+    // localStorage.removeItem(userComment.comment[id]);
+    // console.log(comments);
+    // const commentId = +e.target.id;
+
+    let arr = JSON.parse(localStorage.posts);
+    console.log(commentId);
+    arr[id].comment = arr[id].comment.filter(
+      (item, index) => index !== commentId
+    );
+    console.log(arr);
+    localStorage.posts = JSON.stringify(arr);
+  };
+
+  const comment = () => {
     Axios.post('/comment', { param: { userComment, id } }).then(res => {
-      //   res.data ? console.log('comment sent', userComment) : console.log('error');
-      setData(res.data);
-      console.log(res.data);
+      localStorage.posts = JSON.stringify(res.data);
+      setData(JSON.parse(localStorage.posts));
+      console.log(localStorage);
       console.log(data);
     });
+
     comments.push(userComment);
-    //очистка полей
-    document.getElementById('clearAuthor').value = null;
-    document.getElementById('clearComment').value = null;
+
+    document.getElementById('clearAuthor').value = '';
+    document.getElementById('clearComment').value = '';
   };
 
   const handleComment = e => {
@@ -51,7 +62,7 @@ const Comments = ({ closeComment, id }) => {
               <img
                 src={deleteIcon}
                 id={index}
-                // onClick={deleteComment}
+                onClick={deleteComment(index)}
                 className="comment-delete"
               />
             </div>
@@ -62,6 +73,8 @@ const Comments = ({ closeComment, id }) => {
               id="clearAuthor"
               name="author"
               onChange={handleComment}
+              value={userComment.author}
+              disabled
             />
             <span className="comment-input-placeholder">author</span>
             <input

@@ -26,19 +26,17 @@ app.post('/signup', (req, res) => {
 //авторизация
 app.post('/login', (req, res) => {
   const { login, password } = req.body.param;
-  // console.log(login,password);
-  // res.sendStatus(200);
+  // res.send(login);
   let authorization = false;
-
   users.forEach(item => {
     console.log(item);
     if (item.login == login && item.password == password) {
       authorization = true;
     }
   });
-  console.log(authorization);
-
+  // console.log(authorization);
   authorization ? res.send(true) : res.send(false);
+  console.log(login);
 });
 
 //отправка комментария
@@ -47,6 +45,24 @@ app.post('/comment', (req, res) => {
   // console.log(author, comment);
   posts[id].comment.push(req.body.param.userComment);
   res.send(posts);
+});
+
+//лайк
+app.post('/like', (req, res) => {
+  const { id, user } = req.body.params;
+
+  const likes = posts.map(item => {
+    if (item.id === id) {
+      if (!item.likedUsers.includes(user)) {
+        item.likedUsers.push(user);
+      } else {
+        item.likedUsers.splice(item.likedUsers.indexOf(user), 1);
+      }
+    }
+    return item;
+  });
+
+  res.send(likes);
 });
 
 app.listen(3000, () => console.log('port 3000'));

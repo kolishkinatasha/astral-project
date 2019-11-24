@@ -5,7 +5,8 @@ const posts = [
     alt: '***',
     descr: 'Lorem ipsum dolor sit amet #hashtag',
     id: '0',
-    comment: [{ author: 'author', comment: 'test' }]
+    comment: [{ author: 'author', comment: 'test' }],
+    likedUsers: []
   },
   {
     src:
@@ -13,7 +14,8 @@ const posts = [
     alt: '***',
     descr: 'Lorem ipsum dolor sit amet #hashtag',
     id: '1',
-    comment: [{ author: 'author', comment: 'test' }]
+    comment: [{ author: 'author', comment: 'test' }],
+    likedUsers: []
   },
   {
     src:
@@ -21,7 +23,8 @@ const posts = [
     alt: '***',
     descr: 'Lorem ipsum dolor sit amet #hashtag',
     id: '2',
-    comment: [{ author: 'author', comment: 'test' }]
+    comment: [{ author: '', comment: '' }],
+    likedUsers: []
   },
   {
     src:
@@ -29,7 +32,8 @@ const posts = [
     alt: '***',
     descr: 'Lorem ipsum dolor sit amet #hashtag',
     id: '3',
-    comment: [{ author: 'author', comment: 'test' }]
+    comment: [{ author: 'author', comment: 'test' }],
+    likedUsers: []
   },
   {
     src:
@@ -37,7 +41,8 @@ const posts = [
     alt: '***',
     descr: 'Lorem ipsum dolor sit amet #hashtag',
     id: '4',
-    comment: [{ author: 'author', comment: 'test' }]
+    comment: [{ author: 'author', comment: 'test' }],
+    likedUsers: []
   },
   {
     src:
@@ -45,7 +50,8 @@ const posts = [
     alt: '***',
     descr: 'Lorem ipsum dolor sit amet #hashtag',
     id: '5',
-    comment: [{ author: 'author', comment: 'test' }]
+    comment: [{ author: 'author', comment: 'test' }],
+    likedUsers: []
   }
 ];
 
