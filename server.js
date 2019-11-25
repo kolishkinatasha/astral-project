@@ -1,7 +1,7 @@
 const { join } = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
-const { users, posts } = require('./posts');
+let { users, posts } = require('./posts');
 
 const app = express();
 
@@ -16,17 +16,14 @@ app.get('/data', (req, res) => {
   res.send(posts);
 });
 
-//регистрация
 app.post('/signup', (req, res) => {
   users.push(req.body.param);
   console.log(users);
   res.sendStatus(200);
 });
 
-//авторизация
 app.post('/login', (req, res) => {
   const { login, password } = req.body.param;
-  // res.send(login);
   let authorization = false;
   users.forEach(item => {
     console.log(item);
@@ -39,21 +36,18 @@ app.post('/login', (req, res) => {
   console.log(login);
 });
 
-//отправка комментария
 app.post('/comment', (req, res) => {
   const { id } = req.body.param;
-  // console.log(author, comment);
   posts[id].comment.push(req.body.param.userComment);
   res.send(posts);
 });
 
-//лайк
 app.post('/like', (req, res) => {
   const { id, user } = req.body.params;
 
   const likes = posts.map(item => {
     if (item.id === id) {
-      if (!item.likedUsers.includes(user)) {
+      if (!item.likedUsers.includes(users)) {
         item.likedUsers.push(user);
       } else {
         item.likedUsers.splice(item.likedUsers.indexOf(user), 1);
@@ -63,6 +57,11 @@ app.post('/like', (req, res) => {
   });
 
   res.send(likes);
+});
+
+app.post('/delete', (req, res) => {
+  posts = req.body;
+  res.send(posts);
 });
 
 app.listen(3000, () => console.log('port 3000'));

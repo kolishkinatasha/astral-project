@@ -1,3 +1,5 @@
+// import { commentRequest, commentDeleter } from '../utils/index';
+
 import React from 'react';
 import { useState } from 'react';
 import '../styles/Comment.css';
@@ -16,11 +18,6 @@ const Comments = ({ closeComment, id }) => {
   const [comments, setComments] = useState(data[id].comment);
 
   const deleteComment = commentId => () => {
-    // setComments(JSON.parse(localStorage.data[id].comment));
-    // localStorage.removeItem(userComment.comment[id]);
-    // console.log(comments);
-    // const commentId = +e.target.id;
-
     let arr = JSON.parse(localStorage.posts);
     console.log(commentId);
     arr[id].comment = arr[id].comment.filter(
@@ -28,6 +25,11 @@ const Comments = ({ closeComment, id }) => {
     );
     console.log(arr);
     localStorage.posts = JSON.stringify(arr);
+
+    Axios.post('/delete', arr).then(res => {
+      localStorage.posts = JSON.stringify(res.data);
+      setData(res.data);
+    });
   };
 
   const comment = () => {
@@ -37,7 +39,6 @@ const Comments = ({ closeComment, id }) => {
       console.log(localStorage);
       console.log(data);
     });
-
     comments.push(userComment);
 
     document.getElementById('clearAuthor').value = '';

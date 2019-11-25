@@ -7,30 +7,22 @@ import { posts, users } from '../../posts';
 
 const Post = ({ image, id }) => {
   const [commentIsOpen, setOpenComment] = useState(false);
+  const [data, setData] = useState(JSON.parse(localStorage.posts));
 
-  const [likeCounter, setLikeCounter] = useState(posts[id].likedUsers.length);
-
-  // const [isLikeAdded, setLike] = useState(
-  //   data.likedUsers.includes(localStorage.currentUser) ? true : false
-  // );
-  // localStorage.setItem('posts', JSON.stringify(posts));
-
-  // console.log(JSON.parse(localStorage.getItem('posts')));
-  const [data, resData] = useState(JSON.parse(localStorage.posts));
-  // const [comments] = useState(data[id].comment);
-
-  // const likeRequest = (id, user) =>
-  //   Axios.post('/like', { params: { id, user } });
-
+  const [likeCounter, setLikeCounter] = useState(data[id].likedUsers.length);
+  const [isLikeAdded, setLike] = useState(
+    data[id].likedUsers.includes(localStorage.user ? true : false)
+  );
   const handleLike = () => {
-    Axios.post(
-      '/like',
-      { params: { id, user } }.then(res => {
-        console.log(res.data);
-        localStorage.setItem('posts', JSON.stringify(res.data));
-        setLikeCounter(res.data[data.id].likedUsers.length);
-      })
-    );
+    setLike(!isLikeAdded);
+
+    const { user } = localStorage;
+
+    Axios.post('/like', { params: { user, id } }).then(res => {
+      localStorage.setItem('posts', JSON.stringify(res.data));
+      console.log(res.data[id].likedUsers.length);
+      setLikeCounter(res.data[id].likedUsers.length);
+    });
   };
 
   const handleComment = e => {
@@ -41,32 +33,19 @@ const Post = ({ image, id }) => {
   const closeComment = () => {
     setOpenComment(false);
   };
-  // console.log(posts[id]);
-
-  const [count, setCount] = useState(0);
 
   return (
     <div className="post">
       <img className="post-img" src={posts[id].src} alt="foto" />
 
       <div className="post-descr">{posts[id].descr}</div>
-      <button
-        className="post-button"
-        data-counter="0"
-        onClick={handleLike}
-        // onClick={() => setCount(count + 1)}
-      >
+      <button className="post-button" onClick={handleLike}>
         <img
           className="post-button-img"
           src={require('../image/like.png')}
           alt="like"
         />
-        {/* <img
-          className="post-button-img__active"
-          src={require('../src/image/activLike.png')}
-          alt="like"
-        /> */}
-        <p className="post-button-img">{count}</p>
+        <p className="post-button-img">{likeCounter}</p>
       </button>
       <button className="post-button" onClick={handleComment}>
         <img
